@@ -1,0 +1,41 @@
+﻿<v:NavigationPage
+      x:Class="Atlas.WPF.Views.MainMenu.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:v="clr-namespace:Atlas.WPF.Views"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMenuPage">
+    <DockPanel LastChildFill="True">
+        <DockPanel Style="{StaticResource ToolBar}">
+            <FrameworkElement.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Width" Value="32"/>
+                    <Setter Property="Height" Value="32"/>
+                </Style>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="24"/>
+                </Style>
+            </FrameworkElement.Resources>
+
+            <!--Left-->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Title}" Style="{StaticResource TitleText}"/>
+            </StackPanel>
+
+            <!--Right-->
+            <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Right" DockPanel.Dock="Right">
+
+            </StackPanel>
+        </DockPanel>
+
+        <!--Content-->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="{Binding Title}"/>
+            <Button Content="Settings" Command="{Binding OpenSettingsPageCommand}"/>
+        </StackPanel>
+    </DockPanel>
+</v:NavigationPage>
