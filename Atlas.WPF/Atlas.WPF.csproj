@@ -7,17 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Icons\Back Arrow_24px.png" />
-    <None Remove="Resources\Icons\Close_24px.png" />
-    <None Remove="Resources\Icons\Copy_24px.png" />
-    <None Remove="Resources\Icons\Help_24px.png" />
-    <None Remove="Resources\Icons\Open_24px.png" />
-    <None Remove="Resources\Icons\SaveAs_24px.png" />
-    <None Remove="Resources\Icons\Save_24px.png" />
-    <None Remove="Resources\Icons\Settings_24px.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -43,21 +32,6 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Back Arrow_24px.png" />
-    <Resource Include="Resources\Icons\Close_24px.png" />
-    <Resource Include="Resources\Icons\Copy_24px.png" />
-    <Resource Include="Resources\Icons\Help_24px.png" />
-    <Resource Include="Resources\Icons\Open_24px.png" />
-    <Resource Include="Resources\Icons\SaveAs_24px.png" />
-    <Resource Include="Resources\Icons\Save_24px.png" />
-    <Resource Include="Resources\Icons\Settings_24px.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Controls\" />
   </ItemGroup>
 
 </Project>

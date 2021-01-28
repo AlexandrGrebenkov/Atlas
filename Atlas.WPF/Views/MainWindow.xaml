@@ -19,9 +19,7 @@
 
                     <!--Left-->
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="BackButton" Click="Button_Click">
-                            <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
-                        </Button>
+                        <Button x:Name="BackButton" Click="Button_Click" Content="{md:PackIcon ArrowLeft}"/>
                         <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
                     </StackPanel>
 

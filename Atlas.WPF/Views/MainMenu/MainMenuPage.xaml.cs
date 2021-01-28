@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Atlas.WPF.Views.MainMenu
+﻿namespace Atlas.WPF.Views.MainMenu
 {
     public partial class MainMenuPage : NavigationPage
     {
