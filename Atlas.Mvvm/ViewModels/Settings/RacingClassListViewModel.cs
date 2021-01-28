@@ -31,8 +31,6 @@ namespace Atlas.Mvvm.ViewModels.Settings
             EditCommand = new RelayCommand<RacingClass>(EditExecute);
             DeleteCommand = new RelayCommand<RacingClass>(DeleteExecute);
 
-            //RacingClasses = dbContext.RacingClasses.ToList();
-            //RaisePropertyChanged(nameof(RacingClasses));
             Task.Run(UpdateRacingClasses);
         }
 
@@ -44,7 +42,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
 
         private void EditExecute(RacingClass racingClass)
         {
-            throw new NotImplementedException();
+            
         }
 
         private async void DeleteExecute(RacingClass racingClass)
@@ -53,6 +51,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
             if (result)
             {
 
+                await UpdateRacingClasses();
             }
         }
     }
