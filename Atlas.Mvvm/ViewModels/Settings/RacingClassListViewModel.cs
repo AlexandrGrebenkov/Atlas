@@ -42,7 +42,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
 
         private void EditExecute(RacingClass racingClass)
         {
-            
+            navigationService.Push<SaveRacingClassViewModel>();
         }
 
         private async void DeleteExecute(RacingClass racingClass)
@@ -50,7 +50,8 @@ namespace Atlas.Mvvm.ViewModels.Settings
             var result = await dialogService.DisplayAlert("Удаление", $"Вы действительно хотите удалить класс {racingClass.Name}?", "Удалить", "Отмена");
             if (result)
             {
-
+                dbContext.RacingClasses.Remove(racingClass);
+                await dbContext.SaveChangesAsync();
                 await UpdateRacingClasses();
             }
         }

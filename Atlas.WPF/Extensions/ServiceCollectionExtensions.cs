@@ -21,6 +21,7 @@ namespace Atlas.WPF.Extensions
                 navigationService.RegisterPage<MainMenuViewModel, MainMenuPage>();
                 navigationService.RegisterPage<SettingsViewModel, SettingsPage>();
                 navigationService.RegisterPage<RacingClassListViewModel, RacingClassListPage>();
+                navigationService.RegisterPage<SaveRacingClassViewModel, SaveRacingClassPage>();
                 return navigationService;
             });
         }
