@@ -20,16 +20,16 @@ namespace Atlas.Mvvm.ViewModels.Settings
         public RelayCommand SaveCommand { get; }
 
         public SaveRacingClassViewModel(IAppDbContext dbContext,
-                                        INavigationService navigationService/*,
-                                        RacingClass racingClass*/)
+                                        INavigationService navigationService,
+                                        RacingClass racingClass)
         {
             this.dbContext = dbContext;
             this.navigationService = navigationService;
-            /*Id = racingClass.Id;
+            Id = racingClass.Id;
             Name = racingClass.Name;
-            Description = racingClass.Description;*/
+            Description = racingClass.Description;
 
-            Title = /*racingClass.Id*/1 == 0 ? "Добавление" : "Редактирование";
+            Title = racingClass.Id == 0 ? "Добавление" : "Редактирование";
 
             SaveCommand = new RelayCommand(SaveExecute);
         }

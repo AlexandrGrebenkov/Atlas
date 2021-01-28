@@ -42,7 +42,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
 
         private void EditExecute(RacingClass racingClass)
         {
-            navigationService.Push<SaveRacingClassViewModel>();
+            navigationService.Push<SaveRacingClassViewModel>(racingClass);
         }
 
         private async void DeleteExecute(RacingClass racingClass)

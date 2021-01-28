@@ -34,6 +34,12 @@ namespace Atlas.WPF.Services
             Push(vm);
         }
 
+        public void Push<TViewModel>(params object[] parameters) where TViewModel : BaseViewModel
+        {
+            var vm = ActivatorUtilities.CreateInstance<TViewModel>(serviceProvider, parameters);
+            Push(vm);
+        }
+
         public void Push(BaseViewModel viewModel)
         {
             var page = (Page)Activator.CreateInstance(pages[viewModel.GetType()]);
