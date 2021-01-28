@@ -11,37 +11,41 @@
 
     <Grid>
         <md:Card Width="500" Padding="40,20" Margin="20">
-            <ScrollViewer>                
-                <ItemsControl ItemsSource="{Binding RacingClasses}" HorizontalContentAlignment="Stretch"
-                      Background="White">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border
-                                x:Name="Border"
-                                Padding="8"
-                                BorderThickness="0 0 0 1"
-                                BorderBrush="{DynamicResource MaterialDesignDivider}">
-                                <Grid>
-                                    <StackPanel HorizontalAlignment="Left">
-                                        <TextBlock Text="{Binding Name}" Style="{StaticResource AccentText}"/>
-                                        <TextBlock Text="{Binding Description}"/>
-                                    </StackPanel>
+            <ScrollViewer>
+                <StackPanel>
+                    <Button Content="Добавить" HorizontalAlignment="Right"
+                        Command="{Binding AddCommand}"/>
+                    <ItemsControl ItemsSource="{Binding RacingClasses}" HorizontalContentAlignment="Stretch"
+                          Background="White">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    x:Name="Border"
+                                    Padding="8"
+                                    BorderThickness="0 0 0 1"
+                                    BorderBrush="{DynamicResource MaterialDesignDivider}">
+                                    <Grid>
+                                        <StackPanel HorizontalAlignment="Left">
+                                            <TextBlock Text="{Binding Name}" Style="{StaticResource AccentText}"/>
+                                            <TextBlock Text="{Binding Description}"/>
+                                        </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button Content="{md:PackIcon Kind=Pencil}" Style="{StaticResource DeleteButton}" 
-                                                Command="{Binding DataContext.EditCommand,
-                                                          RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
-                                                CommandParameter="{Binding .}"/>
-                                        <Button Content="{md:PackIcon Kind=Delete}" Style="{StaticResource DeleteButton}" 
-                                                Command="{Binding DataContext.DeleteCommand,
-                                                          RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
-                                                CommandParameter="{Binding .}"/>
-                                    </StackPanel>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <Button Content="{md:PackIcon Kind=Pencil}" Style="{StaticResource DeleteButton}" 
+                                                    Command="{Binding DataContext.EditCommand,
+                                                              RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
+                                                    CommandParameter="{Binding .}"/>
+                                            <Button Content="{md:PackIcon Kind=Delete}" Style="{StaticResource DeleteButton}" 
+                                                    Command="{Binding DataContext.DeleteCommand,
+                                                              RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
+                                                    CommandParameter="{Binding .}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
             </ScrollViewer>
         </md:Card>
     </Grid>

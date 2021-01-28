@@ -18,6 +18,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
         private readonly INavigationService navigationService;
         private readonly IDialogService dialogService;
 
+        public RelayCommand AddCommand { get; }
         public RelayCommand<RacingClass> EditCommand { get; }
         public RelayCommand<RacingClass> DeleteCommand { get; }
         public IEnumerable<RacingClass> RacingClasses { get; private set; } = new List<RacingClass>();
@@ -28,10 +29,17 @@ namespace Atlas.Mvvm.ViewModels.Settings
             this.navigationService = navigationService;
             this.dialogService = dialogService;
 
+            AddCommand = new RelayCommand(AddExecute);
             EditCommand = new RelayCommand<RacingClass>(EditExecute);
             DeleteCommand = new RelayCommand<RacingClass>(DeleteExecute);
 
             Task.Run(UpdateRacingClasses);
+        }
+
+        private void AddExecute()
+        {
+            var racingClass = new RacingClass();
+            navigationService.Push<SaveRacingClassViewModel>(racingClass);
         }
 
         private async Task UpdateRacingClasses()
