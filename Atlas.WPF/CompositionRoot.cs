@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Windows;
 using Atlas.DataAccess.Extensions;
+using Atlas.Infrastructure.Abstraction.Interfaces;
 using Atlas.Infrastructure.Implementation.Extensions;
 using Atlas.Mvvm.Extensions;
 using Atlas.Mvvm.ServiceAbstractions;
@@ -31,6 +31,8 @@ namespace Atlas.WPF
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
+            MigrateDatabase();
+
             var navigation = ServiceProvider.GetRequiredService<INavigationService>();
             navigation.Push<MainMenuViewModel>();
         }
@@ -41,6 +43,12 @@ namespace Atlas.WPF
             services.RegisterMvvm();
             services.RegisterInfrastructure();
             services.RegisterWpfServices();
+        }
+
+        private void MigrateDatabase()
+        {
+            var context = ServiceProvider.GetRequiredService<IAppDbContext>();
+            context.Migrate();
         }
     }
 }

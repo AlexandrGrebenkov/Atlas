@@ -9,8 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Content="Show warning" Command="{Binding ShowWarningCommand}"/>
-            <Button Content="Show Dialog" Command="{Binding ShowDialogCommand}"/>
+            <Button Content="Racing classes" Command="{Binding RacingClassesCommand}"/>
         </StackPanel>
     </Grid>
 </v:NavigationPage>

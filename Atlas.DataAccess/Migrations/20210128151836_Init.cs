@@ -7,7 +7,7 @@ namespace Atlas.DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Measures",
+                name: "RacingClasses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -17,21 +17,21 @@ namespace Atlas.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Measures", x => x.Id);
+                    table.PrimaryKey("PK_RacingClasses", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Measures",
+                table: "RacingClasses",
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[] { 1, null, "PROD-32" });
 
             migrationBuilder.InsertData(
-                table: "Measures",
+                table: "RacingClasses",
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[] { 2, null, "PROD-24" });
 
             migrationBuilder.InsertData(
-                table: "Measures",
+                table: "RacingClasses",
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[] { 3, "Чайник", "ES-24U" });
         }
@@ -39,7 +39,7 @@ namespace Atlas.DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Measures");
+                name: "RacingClasses");
         }
     }
 }

@@ -12,5 +12,28 @@
            x:Key="FlatButton"/>
 
     <Style TargetType="Button" BasedOn="{StaticResource PrimaryButton}"/>
+    
+    <!--Icon buttons-->
+    <Style TargetType="Button" x:Key="DeleteButton">
+        <Setter Property="Foreground" Value="#999"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="#01FFFFFF">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#555"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

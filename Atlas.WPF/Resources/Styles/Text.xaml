@@ -8,7 +8,7 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="AccentText" BasedOn="{StaticResource NormalText}">
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Margin" Value="0,8"/>
     </Style>

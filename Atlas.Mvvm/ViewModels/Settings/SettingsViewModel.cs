@@ -11,15 +11,18 @@ namespace Atlas.Mvvm.ViewModels.Settings
 
         public RelayCommand GoBackCommand { get; }
 
-        public RelayCommand ShowWarningCommand { get; }
-        public RelayCommand ShowDialogCommand { get; }
+        public RelayCommand RacingClassesCommand { get; }
 
         public SettingsViewModel(INavigationService navigationService, INotificationService notificationService, IDialogService dialogService)
         {
             this.navigationService = navigationService;
             GoBackCommand = new RelayCommand(() => navigationService.Pop());
-            ShowWarningCommand = new RelayCommand(() => notificationService.ShowMessage("Hello"));
-            ShowDialogCommand = new RelayCommand(async () => await dialogService.DisplayAlert("Hello", "Message", "Ok", "Cancel"));
+            RacingClassesCommand = new RelayCommand(RacingClassesExecute);
+        }
+
+        private void RacingClassesExecute()
+        {
+            navigationService.Push<RacingClassListViewModel>();
         }
     }
 }

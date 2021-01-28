@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using Atlas.Mvvm.ServiceAbstractions;
 using Atlas.Mvvm.ViewModels;
+using Atlas.WPF.Views;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Atlas.WPF.Services
@@ -22,7 +23,7 @@ namespace Atlas.WPF.Services
 
         public void RegisterPage<TViewModel, TPage>()
             where TViewModel : BaseViewModel
-            where TPage : Page
+            where TPage : NavigationPage
         {
             pages.Add(typeof(TViewModel), typeof(TPage));
         }

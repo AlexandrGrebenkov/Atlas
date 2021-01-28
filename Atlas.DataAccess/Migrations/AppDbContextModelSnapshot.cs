@@ -31,7 +31,7 @@ namespace Atlas.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Measures");
+                    b.ToTable("RacingClasses");
 
                     b.HasData(
                         new

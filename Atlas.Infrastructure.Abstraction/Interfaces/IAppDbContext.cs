@@ -7,8 +7,10 @@ namespace Atlas.Infrastructure.Abstraction.Interfaces
 {
     public interface IAppDbContext
     {
-        DbSet<RacingClass> Measures { get; }
+        DbSet<RacingClass> RacingClasses { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
+        void Migrate();
     }
 }

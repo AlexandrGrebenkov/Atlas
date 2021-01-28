@@ -7,6 +7,7 @@ namespace Atlas.DataAccess.Extensions
     {
         public static void RegisterDataAccess(this IServiceCollection serviceCollection)
         {
+            //SQLitePCL.raw.SetProvider();
             serviceCollection.AddSingleton<IAppDbContext, AppDbContext>();
         }
     }

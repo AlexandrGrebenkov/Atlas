@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Atlas.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210122202139_Init")]
+    [Migration("20210128151836_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace Atlas.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Measures");
+                    b.ToTable("RacingClasses");
 
                     b.HasData(
                         new

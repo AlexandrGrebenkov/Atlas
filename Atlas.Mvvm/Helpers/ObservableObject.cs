@@ -47,5 +47,16 @@ namespace Atlas.Mvvm.Helpers
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        /// <summary>
+        /// Raises this object's PropertyChanged event.
+        /// </summary>
+        /// <param name="propertyName">Name of the property used to notify listeners. This
+        /// value is optional and can be provided automatically when invoked from compilers
+        /// that support <see cref="CallerMemberNameAttribute"/>.</param>
+        protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            OnPropertyChanged(propertyName);
+        }
     }
 }

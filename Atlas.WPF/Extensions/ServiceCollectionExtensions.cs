@@ -20,6 +20,7 @@ namespace Atlas.WPF.Extensions
                 var navigationService = new NavigationService(((MainWindow)Application.Current.MainWindow).frRoot, provider);
                 navigationService.RegisterPage<MainMenuViewModel, MainMenuPage>();
                 navigationService.RegisterPage<SettingsViewModel, SettingsPage>();
+                navigationService.RegisterPage<RacingClassListViewModel, RacingClassListPage>();
                 return navigationService;
             });
         }
