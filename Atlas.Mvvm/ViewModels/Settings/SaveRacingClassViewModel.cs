@@ -51,7 +51,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
 
             await dbContext.SaveChangesAsync();
 
-            navigationService.Pop();
+            navigationService.Pop(racingClass);
         }
     }
 }

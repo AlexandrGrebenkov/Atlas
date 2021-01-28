@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Atlas.Domain.Entities;
 using Atlas.Infrastructure.Abstraction.Interfaces;
@@ -21,7 +19,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
         public RelayCommand AddCommand { get; }
         public RelayCommand<RacingClass> EditCommand { get; }
         public RelayCommand<RacingClass> DeleteCommand { get; }
-        public IEnumerable<RacingClass> RacingClasses { get; private set; } = new List<RacingClass>();
+        public ObservableCollection<RacingClass> RacingClasses { get; private set; }
 
         public RacingClassListViewModel(IAppDbContext dbContext, INavigationService navigationService, IDialogService dialogService)
         {
@@ -36,21 +34,29 @@ namespace Atlas.Mvvm.ViewModels.Settings
             Task.Run(UpdateRacingClasses);
         }
 
-        private void AddExecute()
+        private async void AddExecute()
         {
             var racingClass = new RacingClass();
-            navigationService.Push<SaveRacingClassViewModel>(racingClass);
+            racingClass = (RacingClass)await navigationService.PushAsync<SaveRacingClassViewModel>(racingClass);
+            if (racingClass != null)
+            {
+                RacingClasses.Add(racingClass);
+            }
         }
 
         private async Task UpdateRacingClasses()
         {
-            RacingClasses = await dbContext.RacingClasses.ToListAsync();
+            RacingClasses = new ObservableCollection<RacingClass>(await dbContext.RacingClasses.ToListAsync());
             RaisePropertyChanged(nameof(RacingClasses));
         }
 
-        private void EditExecute(RacingClass racingClass)
+        private async void EditExecute(RacingClass racingClass)
         {
-            navigationService.Push<SaveRacingClassViewModel>(racingClass);
+            racingClass = (RacingClass)await navigationService.PushAsync<SaveRacingClassViewModel>(racingClass);
+            if (racingClass != null)
+            {
+                await UpdateRacingClasses();
+            }
         }
 
         private async void DeleteExecute(RacingClass racingClass)
@@ -60,7 +66,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
             {
                 dbContext.RacingClasses.Remove(racingClass);
                 await dbContext.SaveChangesAsync();
-                await UpdateRacingClasses();
+                RacingClasses.Remove(racingClass);
             }
         }
     }
