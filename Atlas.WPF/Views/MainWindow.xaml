@@ -6,31 +6,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1300">
     <DockPanel LastChildFill="True">
-        <DockPanel Style="{StaticResource ToolBar}" x:Name="Toolbar">
-            <FrameworkElement.Resources>
-                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-                    <Setter Property="Width" Value="32"/>
-                    <Setter Property="Height" Value="32"/>
-                </Style>
-                <Style TargetType="Image">
-                    <Setter Property="Width" Value="24"/>
-                </Style>
-            </FrameworkElement.Resources>
+        <Grid Style="{StaticResource ToolBar}">
+            <DockPanel x:Name="Toolbar" Margin="16,0">
+                <FrameworkElement.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource ToolbarButton}"/>
+                </FrameworkElement.Resources>
 
-            <!--Left-->
-            <StackPanel Orientation="Horizontal" Margin="16,0">
-                <Button x:Name="BackButton" Click="Button_Click">
-                    <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
-                </Button>
-                <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
-            </StackPanel>
-
-            <!--Right-->
-            <StackPanel Orientation="Horizontal" 
-                    HorizontalAlignment="Right" DockPanel.Dock="Right">
-
-            </StackPanel>
-        </DockPanel>
+                <!--Left-->
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="BackButton" Click="Button_Click">
+                        <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
+                    </Button>
+                    <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
+                </StackPanel>
+                
+                <!--Right-->
+                <Grid x:Name="ToolbarItems">
+                    
+                </Grid>
+            </DockPanel>
+        </Grid>
 
         <!--Content-->
         <Grid>

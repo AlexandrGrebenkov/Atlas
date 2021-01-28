@@ -37,11 +37,26 @@ namespace Atlas.WPF
 
             if (e.Content is NavigationPage page)
             {
+                UpdateToolbarItems(page);
+                UpdateTitle(page);
                 page.BeginAnimation(MarginProperty, animation);
-                if (page.DataContext is BaseViewModel vm)
-                {
-                    Title.Text = vm.Title;
-                }
+            }
+        }
+
+        private void UpdateTitle(NavigationPage page)
+        {
+            if (page.DataContext is BaseViewModel vm)
+            {
+                Title.Text = vm.Title;
+            }
+        }
+
+        private void UpdateToolbarItems(NavigationPage page)
+        {
+            ToolbarItems.Children.Clear();
+            if (page.ToolbarItems != null)
+            {
+                ToolbarItems.Children.Add(page.ToolbarItems);
             }
         }
 
