@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--Primary buttons-->
+    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}"
+           x:Key="PrimaryButton">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}"/>
+    </Style>
+
+    <!--Without background-->
+    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}"
+           x:Key="FlatButton"/>
+
+    <Style TargetType="Button" BasedOn="{StaticResource PrimaryButton}"/>
+
+</ResourceDictionary>

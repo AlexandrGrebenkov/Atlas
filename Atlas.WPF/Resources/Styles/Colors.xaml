@@ -1,16 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Color x:Key="PrimaryColor">#2d374c</Color>
+    <Color x:Key="PrimaryForegroundColor">#DDD</Color>
+    
     <SolidColorBrush x:Key="PageBackground">#eff3f4</SolidColorBrush>
     <SolidColorBrush x:Key="Background">#FFF</SolidColorBrush>
 
-    <SolidColorBrush x:Key="Primary">#2d374c</SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryForeground">#FFF</SolidColorBrush>
+    <SolidColorBrush x:Key="Primary" Color="{StaticResource PrimaryColor}"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryForeground" Color="{StaticResource PrimaryForegroundColor}"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryForegroundLight">#969ba5</SolidColorBrush>
 
     <SolidColorBrush x:Key="TextColor">#444</SolidColorBrush>
     <SolidColorBrush x:Key="LightTextColor">#888</SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryTextColor">#DDD</SolidColorBrush>
     <SolidColorBrush x:Key="Separator">#DDD</SolidColorBrush>
     
 </ResourceDictionary>

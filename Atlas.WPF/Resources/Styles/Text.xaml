@@ -14,7 +14,7 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="TitleText" BasedOn="{StaticResource NormalText}">
-        <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Regular"/>
@@ -30,5 +30,4 @@
         <Setter Property="Foreground" Value="{StaticResource LightTextColor}"/>
     </Style>
 
-    <Style TargetType="TextBlock"  BasedOn="{StaticResource NormalText}"/>
 </ResourceDictionary>
