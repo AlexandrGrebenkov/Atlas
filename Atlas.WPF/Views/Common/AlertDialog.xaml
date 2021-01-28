@@ -14,7 +14,7 @@
                 <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
             </Style>
             <Style TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
-                <Setter Property="Width" Value="80"/>
+                <Setter Property="MinWidth" Value="80"/>
                 <Setter Property="Margin" Value="4,0"/>
             </Style>
             <Style TargetType="TextBox">

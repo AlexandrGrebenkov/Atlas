@@ -18,8 +18,8 @@ namespace Atlas.Mvvm.ViewModels.Settings
         private readonly INavigationService navigationService;
         private readonly IDialogService dialogService;
 
-        public RelayCommand EditCommand { get; }
-        public RelayCommand DeleteCommand { get; }
+        public RelayCommand<RacingClass> EditCommand { get; }
+        public RelayCommand<RacingClass> DeleteCommand { get; }
         public IEnumerable<RacingClass> RacingClasses { get; private set; } = new List<RacingClass>();
 
         public RacingClassListViewModel(IAppDbContext dbContext, INavigationService navigationService, IDialogService dialogService)
@@ -28,12 +28,12 @@ namespace Atlas.Mvvm.ViewModels.Settings
             this.navigationService = navigationService;
             this.dialogService = dialogService;
 
-            EditCommand = new RelayCommand(EditExecute);
-            DeleteCommand = new RelayCommand(DeleteExecute);
+            EditCommand = new RelayCommand<RacingClass>(EditExecute);
+            DeleteCommand = new RelayCommand<RacingClass>(DeleteExecute);
 
-            RacingClasses = dbContext.RacingClasses.ToList();
+            //RacingClasses = dbContext.RacingClasses.ToList();
             //RaisePropertyChanged(nameof(RacingClasses));
-            //Task.Run(UpdateRacingClasses);
+            Task.Run(UpdateRacingClasses);
         }
 
         private async Task UpdateRacingClasses()
@@ -42,14 +42,14 @@ namespace Atlas.Mvvm.ViewModels.Settings
             RaisePropertyChanged(nameof(RacingClasses));
         }
 
-        private void EditExecute()
+        private void EditExecute(RacingClass racingClass)
         {
             throw new NotImplementedException();
         }
 
-        private async void DeleteExecute()
+        private async void DeleteExecute(RacingClass racingClass)
         {
-            var result = await dialogService.DisplayAlert("Удаление", $"Вы действительно хотите удалить класс ?", "Удалить", "Отмена");
+            var result = await dialogService.DisplayAlert("Удаление", $"Вы действительно хотите удалить класс {racingClass.Name}?", "Удалить", "Отмена");
             if (result)
             {
 

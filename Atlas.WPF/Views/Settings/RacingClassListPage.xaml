@@ -28,8 +28,13 @@
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button Content="{md:PackIcon Kind=Pencil}" Style="{StaticResource DeleteButton}" Command="{Binding EditCommand}"/>
-                                        <Button Content="{md:PackIcon Kind=Delete}" Style="{StaticResource DeleteButton}" Command="{Binding DeleteCommand}"/>
+                                        <Button Content="{md:PackIcon Kind=Pencil}" Style="{StaticResource DeleteButton}" 
+                                                Command="{Binding DataContext.EditCommand,
+                                                          RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"/>
+                                        <Button Content="{md:PackIcon Kind=Delete}" Style="{StaticResource DeleteButton}" 
+                                                Command="{Binding DataContext.DeleteCommand,
+                                                          RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"
+                                                CommandParameter="{Binding .}"/>
                                     </StackPanel>
                                 </Grid>
                             </Border>

@@ -41,6 +41,6 @@
                Panel.ZIndex="1"
                Navigating="frDialog_Navigating"
                Visibility="Collapsed"
-               Background="#44000000"/>
+               Background="#66000000"/>
     </Grid>
 </Window>

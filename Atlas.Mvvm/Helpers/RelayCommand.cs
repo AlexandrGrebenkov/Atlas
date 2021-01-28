@@ -12,21 +12,34 @@ namespace Atlas.Mvvm.Helpers
     /// </summary>
     public class RelayCommand : ICommand
     {
-        private readonly Action _execute;
-        private readonly Func<bool> _canExecute;
+        private readonly Action<object> _execute;
+        private readonly Func<object, bool> _canExecute;
 
         /// <summary>
         /// Raised when RaiseCanExecuteChanged is called.
         /// </summary>
         public event EventHandler CanExecuteChanged;
 
+        public RelayCommand(Action<object> execute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException(nameof(execute));
+            _execute = execute;
+        }
+
         /// <summary>
         /// Creates a new command that can always execute.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
-        public RelayCommand(Action execute)
-            : this(execute, null)
+        public RelayCommand(Action execute) : this(o => execute())
         {
+        }
+
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute) : this(execute)
+        {
+            if (canExecute == null)
+                throw new ArgumentNullException(nameof(canExecute));
+            _canExecute = canExecute;
         }
 
         /// <summary>
@@ -34,12 +47,8 @@ namespace Atlas.Mvvm.Helpers
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         /// <param name="canExecute">The execution status logic.</param>
-        public RelayCommand(Action execute, Func<bool> canExecute)
+        public RelayCommand(Action execute, Func<bool> canExecute) : this(o => execute(), o => canExecute())
         {
-            if (execute == null)
-                throw new ArgumentNullException("execute");
-            _execute = execute;
-            _canExecute = canExecute;
         }
 
         /// <summary>
@@ -51,7 +60,7 @@ namespace Atlas.Mvvm.Helpers
         /// <returns>true if this command can be executed; otherwise, false.</returns>
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null ? true : _canExecute();
+            return _canExecute == null ? true : _canExecute(parameter);
         }
 
         /// <summary>
@@ -62,7 +71,7 @@ namespace Atlas.Mvvm.Helpers
         /// </param>
         public void Execute(object parameter)
         {
-            _execute();
+            _execute(parameter);
         }
 
         /// <summary>
@@ -77,6 +86,59 @@ namespace Atlas.Mvvm.Helpers
             {
                 handler(this, EventArgs.Empty);
             }
+        }
+    }
+
+    public class RelayCommand<T> : RelayCommand
+    {
+        public RelayCommand(Action<T> execute)
+            : base(o =>
+            {
+                if (IsValidParameter(o))
+                {
+                    execute((T)o);
+                }
+            })
+        {
+            if (execute == null)
+            {
+                throw new ArgumentNullException(nameof(execute));
+            }
+        }
+
+        public RelayCommand(Action<T> execute, Func<T, bool> canExecute)
+            : base(o =>
+            {
+                if (IsValidParameter(o))
+                {
+                    execute((T)o);
+                }
+            }, o => IsValidParameter(o) && canExecute((T)o))
+        {
+            if (execute == null)
+                throw new ArgumentNullException(nameof(execute));
+            if (canExecute == null)
+                throw new ArgumentNullException(nameof(canExecute));
+        }
+
+        static bool IsValidParameter(object o)
+        {
+            if (o != null)
+            {
+                // The parameter isn't null, so we don't have to worry whether null is a valid option
+                return o is T;
+            }
+
+            var t = typeof(T);
+
+            // The parameter is null. Is T Nullable?
+            if (Nullable.GetUnderlyingType(t) != null)
+            {
+                return true;
+            }
+
+            // Not a Nullable, if it's a value type then null is not valid
+            return t.GetType().IsValueType;
         }
     }
 }
