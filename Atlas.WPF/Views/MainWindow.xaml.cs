@@ -69,5 +69,20 @@ namespace Atlas.WPF
         {
             BackButton.Visibility = frRoot.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
         }
+
+        private void frDialog_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            var animation = new ThicknessAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.3),
+                DecelerationRatio = 0.7,
+                To = new Thickness(0, 0, 0, 0)
+            };
+
+            animation.From = new Thickness(0, 300, 0, 0);
+
+
+            ((BaseDialog)e.Content).BeginAnimation(MarginProperty, animation);
+        }
     }
 }

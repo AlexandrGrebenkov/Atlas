@@ -18,15 +18,10 @@ namespace Atlas.WPF.Services
 
         public void CloseAlert()
         {
-            if (frame.CanGoBack || frame.CanGoForward)
+            if (frame.CanGoBack)
             {
-                JournalEntry entry;
-                do
-                {
-                    entry = frame.RemoveBackEntry();
-                } while (entry != null);
+                frame.GoBack();
             }
-            frame.Content = null;
             frame.Visibility = Visibility.Collapsed;
         }
 

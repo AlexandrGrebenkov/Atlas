@@ -6,20 +6,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AlertDialog">
+      d:DesignHeight="450" d:DesignWidth="800">
 
     <FrameworkElement.Resources>
         <ResourceDictionary>
             <Style TargetType="TextBlock">
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
             </Style>
             <Style TargetType="Button">
                 <Setter Property="Width" Value="80"/>
                 <Setter Property="Height" Value="24"/>
                 <Setter Property="Margin" Value="4,0"/>
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                 <Style.Triggers>
                     <Trigger Property="IsFocused" Value="true">
                         <Setter Property="BorderThickness" Value="2"/>
@@ -28,18 +27,17 @@
             </Style>
             <Style TargetType="TextBox">
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                 <Setter Property="BorderThickness" Value="0"/>
             </Style>
         </ResourceDictionary>
     </FrameworkElement.Resources>
     <Grid>
-        <Grid Background="#99000000"/>
-
-        <Grid VerticalAlignment="Center" Height="200">
-            <Grid Background="#FF1B1B1C"/>
+        <Grid VerticalAlignment="Center" Width="400" Height="400">
+            <Border Background="White" Effect="{StaticResource z-depth5}" CornerRadius="8"/>
+            
             <Grid>
-                <Grid Width="600" Margin="20">
+                <Grid Margin="40, 40, 40, 30">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition Height="Auto"/>

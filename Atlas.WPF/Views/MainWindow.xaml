@@ -5,37 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1300">
-    <DockPanel LastChildFill="True">
-        <Grid Style="{StaticResource ToolBar}">
-            <DockPanel x:Name="Toolbar" Margin="16,0">
-                <FrameworkElement.Resources>
-                    <Style TargetType="Button" BasedOn="{StaticResource ToolbarButton}"/>
-                </FrameworkElement.Resources>
+    <Grid>
 
-                <!--Left-->
-                <StackPanel Orientation="Horizontal">
-                    <Button x:Name="BackButton" Click="Button_Click">
-                        <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
-                    </Button>
-                    <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
-                </StackPanel>
-                
-                <!--Right-->
-                <Grid x:Name="ToolbarItems">
-                    
-                </Grid>
-            </DockPanel>
-        </Grid>
+        <DockPanel LastChildFill="True">
+            <Grid Style="{StaticResource ToolBar}">
+                <DockPanel x:Name="Toolbar" Margin="16,0">
+                    <FrameworkElement.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource ToolbarButton}"/>
+                    </FrameworkElement.Resources>
 
-        <!--Content-->
-        <Grid>
+                    <!--Left-->
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="BackButton" Click="Button_Click">
+                            <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
+                        </Button>
+                        <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
+                    </StackPanel>
+
+                    <!--Right-->
+                    <Grid x:Name="ToolbarItems">
+
+                    </Grid>
+                </DockPanel>
+            </Grid>
+
+            <!--Content-->
             <Frame x:Name="frRoot" NavigationUIVisibility="Hidden"
                    Navigating="FrRoot_Navigating" Navigated="frRoot_Navigated"
                    Background="{StaticResource PageBackground}"/>
 
-            <Frame x:Name="frDialog" NavigationUIVisibility="Hidden"
-                   Panel.ZIndex="1"
-                   Visibility="Collapsed"/>
-        </Grid>
-    </DockPanel>
+        </DockPanel>
+
+        <Frame x:Name="frDialog" NavigationUIVisibility="Hidden"
+               Panel.ZIndex="1"
+               Navigating="frDialog_Navigating"
+               Visibility="Collapsed"
+               Background="#44000000"/>
+    </Grid>
 </Window>
