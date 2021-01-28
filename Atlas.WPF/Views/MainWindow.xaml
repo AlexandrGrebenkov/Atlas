@@ -5,11 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1300">
-    <Grid>
-        <Frame x:Name="frRoot" NavigationUIVisibility="Hidden" Navigating="FrRoot_Navigating" 
+    <DockPanel LastChildFill="True">
+        <DockPanel Style="{StaticResource ToolBar}" x:Name="Toolbar">
+            <FrameworkElement.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Width" Value="32"/>
+                    <Setter Property="Height" Value="32"/>
+                </Style>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="24"/>
+                </Style>
+            </FrameworkElement.Resources>
+
+            <!--Left-->
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BackButton" Click="Button_Click">
+                    <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
+                </Button>
+                <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
+            </StackPanel>
+
+            <!--Right-->
+            <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Right" DockPanel.Dock="Right">
+
+            </StackPanel>
+        </DockPanel>
+        
+        <!--Content-->
+        <Frame x:Name="frRoot" NavigationUIVisibility="Hidden" Navigating="FrRoot_Navigating" Navigated="frRoot_Navigated"
            Background="{StaticResource PageBackground}"/>
 
 
         <!--<Frame x:Name="frDialog" NavigationUIVisibility="Hidden" Background="Transparent" Panel.ZIndex="1"/>-->
-    </Grid>
+    </DockPanel>
 </Window>

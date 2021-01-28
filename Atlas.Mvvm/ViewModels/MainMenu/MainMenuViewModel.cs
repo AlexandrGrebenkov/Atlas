@@ -6,7 +6,7 @@ namespace Atlas.Mvvm.ViewModels.MainMenu
 {
     public class MainMenuViewModel : BaseViewModel
     {
-        public string Title => "Main Menu";
+        public override string Title => "Main Menu";
 
         private readonly INavigationService navigationService;
 

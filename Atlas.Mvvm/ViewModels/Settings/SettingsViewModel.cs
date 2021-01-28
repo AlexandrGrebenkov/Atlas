@@ -5,7 +5,7 @@ namespace Atlas.Mvvm.ViewModels.Settings
 {
     public class SettingsViewModel : BaseViewModel
     {
-        public string Title => "Settings";
+        public override string Title => "Settings";
 
         private readonly INavigationService navigationService;
 
