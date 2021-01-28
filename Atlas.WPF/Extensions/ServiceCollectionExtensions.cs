@@ -14,7 +14,7 @@ namespace Atlas.WPF.Extensions
         public static void RegisterWpfServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddSingleton<INotificationService, NotificationService>();
-            serviceCollection.AddSingleton<IDialogService>(provider => new DialogService(((MainWindow)Application.Current.MainWindow).frRoot));
+            serviceCollection.AddSingleton<IDialogService>(provider => new DialogService(((MainWindow)Application.Current.MainWindow).frDialog));
             serviceCollection.AddSingleton<INavigationService>(provider =>
             {
                 var navigationService = new NavigationService(((MainWindow)Application.Current.MainWindow).frRoot, provider);

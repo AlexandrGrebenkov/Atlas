@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Icons\Back Arrow_24px.png" />
+    <None Remove="Resources\Icons\Close_24px.png" />
+    <None Remove="Resources\Icons\Copy_24px.png" />
+    <None Remove="Resources\Icons\Help_24px.png" />
+    <None Remove="Resources\Icons\Open_24px.png" />
+    <None Remove="Resources\Icons\SaveAs_24px.png" />
+    <None Remove="Resources\Icons\Save_24px.png" />
+    <None Remove="Resources\Icons\Settings_24px.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -34,7 +45,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Icons\" />
+    <Resource Include="Resources\Icons\Back Arrow_24px.png" />
+    <Resource Include="Resources\Icons\Close_24px.png" />
+    <Resource Include="Resources\Icons\Copy_24px.png" />
+    <Resource Include="Resources\Icons\Help_24px.png" />
+    <Resource Include="Resources\Icons\Open_24px.png" />
+    <Resource Include="Resources\Icons\SaveAs_24px.png" />
+    <Resource Include="Resources\Icons\Save_24px.png" />
+    <Resource Include="Resources\Icons\Settings_24px.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Controls\" />
   </ItemGroup>
 
 </Project>

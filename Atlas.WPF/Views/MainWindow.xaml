@@ -18,7 +18,7 @@
             </FrameworkElement.Resources>
 
             <!--Left-->
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="16,0">
                 <Button x:Name="BackButton" Click="Button_Click">
                     <Image Source="/Resources/Icons/Back Arrow_24px.png"/>
                 </Button>
@@ -31,12 +31,16 @@
 
             </StackPanel>
         </DockPanel>
-        
+
         <!--Content-->
-        <Frame x:Name="frRoot" NavigationUIVisibility="Hidden" Navigating="FrRoot_Navigating" Navigated="frRoot_Navigated"
-           Background="{StaticResource PageBackground}"/>
+        <Grid>
+            <Frame x:Name="frRoot" NavigationUIVisibility="Hidden"
+                   Navigating="FrRoot_Navigating" Navigated="frRoot_Navigated"
+                   Background="{StaticResource PageBackground}"/>
 
-
-        <!--<Frame x:Name="frDialog" NavigationUIVisibility="Hidden" Background="Transparent" Panel.ZIndex="1"/>-->
+            <Frame x:Name="frDialog" NavigationUIVisibility="Hidden"
+                   Panel.ZIndex="1"
+                   Visibility="Collapsed"/>
+        </Grid>
     </DockPanel>
 </Window>

@@ -5,7 +5,7 @@
     <Style TargetType="DockPanel" x:Key="ToolBar">
         <Setter Property="DockPanel.Dock" Value="Top"/>
         <Setter Property="Background" Value="{StaticResource Primary}"/>
-        <Setter Property="Effect" Value="{StaticResource z-depth1_5}"/>
+        <Setter Property="Effect" Value="{StaticResource z-depth2}"/>
         <Setter Property="Height" Value="48"/>
         <Setter Property="Panel.ZIndex" Value="2"/>
     </Style>

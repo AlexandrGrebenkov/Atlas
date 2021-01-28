@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Atlas.Mvvm.ServiceAbstractions;
@@ -17,11 +18,7 @@ namespace Atlas.WPF.Services
 
         public void CloseAlert()
         {
-            if (frame.CanGoBack)
-            {
-                frame.GoBack();
-            }
-            /*if (frame.CanGoBack || frame.CanGoForward)
+            if (frame.CanGoBack || frame.CanGoForward)
             {
                 JournalEntry entry;
                 do
@@ -29,11 +26,13 @@ namespace Atlas.WPF.Services
                     entry = frame.RemoveBackEntry();
                 } while (entry != null);
             }
-            frame.Content = null;*/
+            frame.Content = null;
+            frame.Visibility = Visibility.Collapsed;
         }
 
         public Task<bool> DisplayAlert(string Title, string Message, string Ok, string Cancel)
         {
+            frame.Visibility = Visibility.Visible;
             var args = new AlertArguments(Title, Message, Ok, Cancel);
             var alert = new AlertDialog(args, CloseAlert);
             frame.Navigate(alert);
