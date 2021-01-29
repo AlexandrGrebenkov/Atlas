@@ -2,6 +2,8 @@
 using Atlas.Mvvm.ServiceAbstractions;
 using Atlas.Mvvm.ViewModels.MainMenu;
 using Atlas.Mvvm.ViewModels.Settings;
+using Atlas.Mvvm.ViewModels.Settings.RacingClasses;
+using Atlas.Mvvm.ViewModels.Settings.TrackSettings;
 using Atlas.WPF.Services;
 using Atlas.WPF.Views.MainMenu;
 using Atlas.WPF.Views.Settings;
@@ -22,6 +24,7 @@ namespace Atlas.WPF.Extensions
                 navigationService.RegisterPage<SettingsViewModel, SettingsPage>();
                 navigationService.RegisterPage<RacingClassListViewModel, RacingClassListPage>();
                 navigationService.RegisterPage<SaveRacingClassViewModel, SaveRacingClassPage>();
+                navigationService.RegisterPage<TrackSettingsViewModel, TrackSettingsPage>();
                 return navigationService;
             });
         }

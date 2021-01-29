@@ -5,7 +5,7 @@ using Atlas.Mvvm.Helpers;
 using Atlas.Mvvm.ServiceAbstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Atlas.Mvvm.ViewModels.Settings
+namespace Atlas.Mvvm.ViewModels.Settings.RacingClasses
 {
     public class SaveRacingClassViewModel : BaseViewModel
     {
