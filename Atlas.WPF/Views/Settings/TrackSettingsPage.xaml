@@ -9,7 +9,25 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid>
-        
-    </Grid>
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="md:HintAssist.FloatingScale" Value="0.5"/>
+            </Style>
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+    
+    <md:Card>
+        <StackPanel>
+            <Button Content="Сохранить" HorizontalAlignment="Right"
+                    Command="{Binding SaveCommand}"/>
+            <TextBox md:HintAssist.Hint="Город" Text="{Binding Model.City}"/>
+            <TextBox md:HintAssist.Hint="Название" Text="{Binding Model.Name}"/>
+            <TextBox md:HintAssist.Hint="Количество дорожек" Text="{Binding Model.SlotsCount}"/>
+            <TextBox md:HintAssist.Hint="Длина трассы, м." Text="{Binding Model.TrackLength}"/>
+            <TextBox md:HintAssist.Hint="Задержка, с." Text="{Binding Model.DelayAfterStopping}"/>
+        </StackPanel>
+    </md:Card>
 </v:NavigationPage >
