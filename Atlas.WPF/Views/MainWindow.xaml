@@ -20,7 +20,7 @@
                     <!--Left-->
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="BackButton" Click="Button_Click" Content="{md:PackIcon ArrowLeft}"/>
-                        <TextBlock x:Name="Title" Style="{StaticResource TitleText}"/>
+                        <TextBlock x:Name="Title" Style="{StaticResource TitleTextLight}"/>
                     </StackPanel>
 
                     <!--Right-->

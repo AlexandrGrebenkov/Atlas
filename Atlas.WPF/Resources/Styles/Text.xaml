@@ -14,11 +14,15 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="TitleText" BasedOn="{StaticResource NormalText}">
-        <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Regular"/>
         <Setter Property="Margin" Value="8,0"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TitleTextLight" BasedOn="{StaticResource TitleText}">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="LightText" BasedOn="{StaticResource NormalText}">

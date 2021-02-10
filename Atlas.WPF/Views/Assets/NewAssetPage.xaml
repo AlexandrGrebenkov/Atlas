@@ -1,0 +1,33 @@
+﻿<v:NavigationPage 
+      xmlns:v="clr-namespace:Atlas.WPF.Views"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      x:Class="Atlas.WPF.Views.Assets.NewAssetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <md:Card>
+        <StackPanel>
+            <Grid>
+                <TextBlock Text="New Asset"  Style="{StaticResource TitleText}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Cancel" Style="{StaticResource MaterialDesignOutlinedButton}" Width="80"/>
+                    <Button Content="Save" Width="80" Margin="8,0,0,0"/>
+                </StackPanel>
+            </Grid>
+            <Border BorderBrush="#ccc" BorderThickness="1" VerticalAlignment="Bottom" Margin="0,8"/>
+            <WrapPanel>
+                
+                <TextBox  md:HintAssist.Hint="Asset Name"
+                          Text="{Binding Name}"
+                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                          VerticalAlignment="Center"/>
+            
+            </WrapPanel>
+        </StackPanel>
+    </md:Card>
+
+</v:NavigationPage>
