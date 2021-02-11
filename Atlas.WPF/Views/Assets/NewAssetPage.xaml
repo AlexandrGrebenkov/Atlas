@@ -9,7 +9,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
-    <md:Card>
+    <md:Card Width="700">
+        <FrameworkElement.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Border" x:Key="Separator">
+                    <Setter Property="BorderBrush" Value="#ccc"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Height" Value="1"/>
+                    <Setter Property="Margin" Value="0,16"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                </Style>
+            </ResourceDictionary>
+        </FrameworkElement.Resources>
         <StackPanel>
             <Grid>
                 <TextBlock Text="New Asset"  Style="{StaticResource TitleText}"/>
@@ -18,15 +29,110 @@
                     <Button Content="Save" Width="80" Margin="8,0,0,0"/>
                 </StackPanel>
             </Grid>
-            <Border BorderBrush="#ccc" BorderThickness="1" VerticalAlignment="Bottom" Margin="0,8"/>
-            <WrapPanel>
-                
-                <TextBox  md:HintAssist.Hint="Asset Name"
-                          Text="{Binding Name}"
-                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                          VerticalAlignment="Center"/>
             
-            </WrapPanel>
+            <Border Style="{StaticResource Separator}"/>
+
+            <Grid>
+                <FrameworkElement.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <Style TargetType="Border">
+                            <Setter Property="Padding" Value="4,8"/>
+                        </Style>
+                    </ResourceDictionary>
+                </FrameworkElement.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                    <ComboBox
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"                          
+                          md:HintAssist.Hint="Asset Category">
+                        <ComboBoxItem Content="Load Cell"/>
+                        <ComboBoxItem Content="Extensometer"/>
+                        <ComboBoxItem Content="Clock"/>
+                        <ComboBoxItem Content="Position"/>
+                        <ComboBoxItem Content="Strain Gage"/>
+                        <ComboBoxItem Content="Thermal Couple"/>
+                    </ComboBox>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="2">
+                    <DatePicker
+                      md:HintAssist.Hint="Calib Date"
+                      Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                </Border>
+
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <TextBox md:HintAssist.Hint="Asset Name"/>
+                </Border>
+
+                <Border Grid.Row="1" Grid.Column="2">
+                    <TextBox md:HintAssist.Hint="Control No"
+                             ToolTip="This is your internal asset number"/>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="0">
+                    <TextBox md:HintAssist.Hint="Serial No"/>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="1">
+                    <TextBox md:HintAssist.Hint="Model No"/>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="2">
+                    <TextBox md:HintAssist.Hint="Self ID"/>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="3">
+                    <TextBox md:HintAssist.Hint="Sensor ID"/>
+                </Border>
+
+                <Border Grid.Row="3" Grid.Column="0">
+                    <TextBox md:HintAssist.Hint="Sensor Units"/>
+                </Border>
+
+                <Border Grid.Row="3" Grid.Column="1">
+                    <TextBox md:HintAssist.Hint="Conversion Factor"/>
+                </Border>
+
+                <Border Grid.Row="3" Grid.Column="2">
+                    <TextBox md:HintAssist.Hint="Range"/>
+                </Border>
+
+                <Border Grid.Row="3" Grid.Column="3">
+                    <TextBox md:HintAssist.Hint="Exication Volts"/>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="0">
+                    <TextBox md:HintAssist.Hint="Gage"/>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="1">
+                    <TextBox md:HintAssist.Hint="Gage Factor"/>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="2">
+                    <TextBox md:HintAssist.Hint="Gage Quantity"/>
+                </Border>
+
+            </Grid>
+
+            <Border Style="{StaticResource Separator}"/>
+
+
         </StackPanel>
     </md:Card>
 

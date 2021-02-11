@@ -19,6 +19,7 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Content="{md:PackIcon Cog}" Command="{Binding OpenSettingsPageCommand}"/>            
+            <Button Content="New Asset" Command="{Binding OpenNewAssetPageCommand}"/>            
         </StackPanel>
     </Grid>
 </v:NavigationPage>
